@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing Companion</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' />
+</head>
+<body>
+    <div class="container">
+        
+        <div class="word-counter">
+            <h2> Writing Goal </h2>
+            <div class="goal-setting">
+                <label for="wordGoal">Word Goal:</label>
+                <input type="number" id="wordGoal" value="500" min="1">
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress"></div>
+            </div>
+            <p id="wordCount">0 / 500 words</p>
+        </div>
+
+        <div class="brainstorm">
+            <h2>Brainstorming Space</h2>
+            <textarea id="writeSpace" placeholder="Start writing here..."></textarea>
+        </div>
+
+        <div id='calendar'></div>
+    </div>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
+    <script src="script.js"></script>
+</body>
+</html>
