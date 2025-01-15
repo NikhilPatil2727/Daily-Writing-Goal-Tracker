@@ -3,32 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Writing Companion</title>
+    <title>Professional Writing Companion</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
     <div class="container">
-        
-        <div class="word-counter">
-            <h2> Writing Goal </h2>
-            <div class="goal-setting">
-                <label for="wordGoal">Word Goal:</label>
-                <input type="number" id="wordGoal" value="500" min="1">
+        <header class="animate__animated animate__fadeIn">
+            <h1>Daily Writing Goal Tracker</h1>
+            <p class="subtitle">Track, Write, Achieve</p>
+        </header>
+
+        <div class="dashboard-grid">
+            <div class="word-counter card animate__animated animate__slideInLeft">
+                <div class="card-header">
+                    <h2>Daily Writing Goals</h2>
+                    <span class="badge">Today's Progress</span>
+                </div>
+                <div class="goal-setting">
+                    <label for="wordGoal">Set Word Goal:</label>
+                    <input type="number" id="wordGoal" value="500" min="1">
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress">
+                        <span class="progress-text"></span>
+                    </div>
+                </div>
+                <p id="wordCount" class="stats">0 / 500 words</p>
             </div>
-            <div class="progress-container">
-                <div class="progress-bar" id="progress"></div>
+
+            <div class="brainstorm card animate__animated animate__slideInRight">
+                <div class="card-header">
+                    <h2>Creative Workspace</h2>
+                    <span class="badge">Ideas & Writing</span>
+                </div>
+               
+                <textarea id="writeSpace" placeholder="Let your creativity flow..."></textarea>
             </div>
-            <p id="wordCount">0 / 500 words</p>
         </div>
 
-        <div class="brainstorm">
-            <h2>Brainstorming Space</h2>
-            <textarea id="writeSpace" placeholder="Start writing here..."></textarea>
+        <div class="calendar-section card animate__animated animate__slideInUp">
+            <div class="card-header">
+                <h2>Writing Calendar</h2>
+                <span class="badge">Track Progress</span>
+            </div>
+            <div id='calendar'></div>
         </div>
 
-        <div id='calendar'></div>
+        <div class="wave-container">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
     </div>
+    
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
     <script src="script.js"></script>
 </body>
