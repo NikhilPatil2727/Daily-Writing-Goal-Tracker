@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const writeSpace = document.getElementById('writeSpace');
     const progress = document.getElementById('progress');
     const wordCount = document.getElementById('wordCount');
-    const clearButton = document.getElementById('clearButton');
+    const clearBtn = document.getElementById('clearBtn');
     const modal = document.getElementById('eventModal');
     const closeModal = document.getElementsByClassName('close')[0];
-    const eventTitleEl = document.getElementById('eventTitle');
-    const eventDescriptionEl = document.getElementById('eventDescription');
+    const eventTitle = document.getElementById('eventTitle');
+    const eventDesc = document.getElementById('eventDescription');
     const editEventBtn = document.getElementById('editEvent');
     const deleteEventBtn = document.getElementById('deleteEvent');
 
@@ -40,10 +40,31 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         eventClick: function(info) {
             showEventDetails(info.event);
+        },
+        height: 'auto',
+        aspectRatio: 1.35,
+        windowResize: function(view) {
+            if (window.innerWidth < 768) {
+                calendar.changeView('listMonth');
+            } else {
+                calendar.changeView('dayGridMonth');
+            }
         }
     });
     
     calendar.render();
+    
+    function handleCalendarResponsiveness() {
+        if (window.innerWidth < 768) {
+            calendar.changeView('listMonth');
+        } else {
+            calendar.changeView('dayGridMonth');
+        }
+    }
+
+    handleCalendarResponsiveness();
+
+    window.addEventListener('resize', handleCalendarResponsiveness);
 
     function updateWordCount() {
         const words = writeSpace.value.trim().split(/\s+/).filter(word => word.length > 0).length;
@@ -90,8 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showEventDetails(event) {
-        eventTitleEl.textContent = event.title;
-        eventDescriptionEl.textContent = event.extendedProps.description || 'No description provided.';
+        eventTitle.textContent = event.title;
+        eventDesc.textContent = event.extendedProps.description || 'No description provided.';
         modal.style.display = 'block';
 
         let currentEvent = event;
@@ -144,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateWordCount();
     });
 
-    clearButton.addEventListener('click', () => {
+    clearBtn.addEventListener('click', () => {
         if (writeSpace.value.trim() !== '' && confirm('Are you sure you want to clear all text?')) {
             writeSpace.value = '';
             localStorage.setItem('notes', '');

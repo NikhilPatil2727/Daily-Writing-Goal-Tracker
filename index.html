@@ -3,62 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Writing Goal Tracker</title>
+    <title>Writing Tracker</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
-    <div class="container">
-        <header class="animate__animated animate__fadeIn">
-            <h1>Daily Writing Goal Tracker</h1>
-            <p class="subtitle">Track, Write, Achieve</p>
+    <div class="wrap">
+        <header class="anim-fade">
+            <h1>Writing Tracker</h1>
+            <p class="tagline">Write, Track, Succeed</p>
         </header>
-        <div class="dashboard-grid">
-            <div class="word-counter card animate__animated animate__slideInLeft">
-                <div class="card-header">
-                    <h2>Daily Writing Goals</h2>
-                    <span class="badge">Today's Progress</span>
+        <div class="dash">
+            <div class="goal-box anim-left">
+                <div class="box-head">
+                    <h2>Daily Goal</h2>
+                    <span class="tag">Progress</span>
                 </div>
-                <div class="goal-setting">
-                    <label for="wordGoal">Set Word Goal:</label>
+                <div class="goal-set">
+                    <label for="wordGoal">Word Goal:</label>
                     <input type="number" id="wordGoal" value="500" min="1">
                 </div>
-                <div class="progress-container">
-                    <div class="progress-bar" id="progress">
-                        <span class="progress-text"></span>
+                <div class="prog-bar">
+                    <div class="prog" id="progress">
+                        <span class="prog-text"></span>
                     </div>
                 </div>
                 <p id="wordCount" class="stats">0 / 500 words</p>
             </div>
-            <div class="brainstorm card animate__animated animate__slideInRight">
-                <div class="card-header">
-                    <h2>Creative Workspace</h2>
-                    <span class="badge">Ideas & Writing</span>
+            <div class="write-box anim-right">
+                <div class="box-head">
+                    <h2>Writing Space</h2>
+                    <span class="tag">Ideas</span>
                 </div>
-                <button id="clearButton" class="clear-btn">Clear Text</button>
-                <textarea id="writeSpace" placeholder="Let your creativity flow..."></textarea>
+                <button id="clearBtn" class="clear">Clear</button>
+                <textarea id="writeSpace" placeholder="Start writing..."></textarea>
             </div>
         </div>
-        <div class="calendar-section card animate__animated animate__slideInUp">
-            <div class="card-header">
+        <div class="cal-box anim-up">
+            <div class="box-head">
                 <h2>Writing Calendar</h2>
-                <span class="badge">Track Progress</span>
+                <span class="tag">Events</span>
             </div>
-            <div id='calendar'></div>
+            <div class="cal-wrap">
+                <div id='calendar'></div>
+            </div>
         </div>
         <div id="eventModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2 id="eventTitle"></h2>
-                <div class="description-container">
+                <div class="desc-box">
                     <p id="eventDescription"></p>
                 </div>
                 <button id="editEvent">Edit</button>
                 <button id="deleteEvent">Delete</button>
             </div>
         </div>
-        <div class="wave-container">
+        <div class="wave-wrap">
             <div class="wave"></div>
             <div class="wave"></div>
             <div class="wave"></div>
