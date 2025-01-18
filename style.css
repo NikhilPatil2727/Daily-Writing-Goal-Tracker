@@ -1,4 +1,3 @@
-/* Define custom CSS variables for colors */
 :root {
     --primary-color: #4a90e2;
     --secondary-color: #2c3e50;
@@ -7,115 +6,117 @@
     --background-start: #65005e;
     --background-middle: #3c84ce;
     --background-end: #30eee2;
-}
-
-* {
+  }
+  
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-/*  base styles to the body */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     padding: 20px;
-    background: linear-gradient(315deg, 
-        var(--background-start) 3%, 
-        var(--background-middle) 38%, 
-        var(--background-end) 68%);
+    background: linear-gradient(
+      315deg,
+      var(--background-start) 3%,
+      var(--background-middle) 38%,
+      var(--background-end) 68%
+    );
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
     background-attachment: fixed;
     min-height: 100vh;
-}
-/* Container for centering content on the page */
-.container {
+  }
+  
+  .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-}
-
-header {
+  }
+  
+  header {
     text-align: center;
     margin-bottom: 40px;
-}
-
-h1 {
+  }
+  
+  h1 {
     color: white;
     font-size: 2.5em;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.subtitle {
-    color: rgba(255,255,255,0.9);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .subtitle {
+    color: rgba(255, 255, 255, 0.9);
     font-size: 1.2em;
-}
-/* Grid layout for dashboard components */
-.dashboard-grid {
+  }
+  
+  .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     margin-bottom: 30px;
-}
-/* Styling for individual cards within the grid */
-.card {
+  }
+  
+  .card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
     backdrop-filter: blur(4px);
     transition: transform 0.3s ease;
-}
-
-.card:hover {
+  }
+  
+  .card:hover {
     transform: translateY(-5px);
-}
-/* Header section within each card */
-.card-header {
+  }
+  
+  .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-}
-
-.badge {
+  }
+  
+  .badge {
     background: var(--primary-color);
     color: white;
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 0.8em;
-}
-/* Progress bar container */
-.progress-container {
+  }
+  
+  .progress-container {
     background: #f0f0f0;
     border-radius: 10px;
     height: 20px;
     margin: 15px 0;
     overflow: hidden;
-}
-/* Actual progress bar */
-.progress-bar {
+  }
+  
+  .progress-bar {
     height: 100%;
     background: linear-gradient(90deg, var(--success-color), var(--primary-color));
     border-radius: 10px;
     transition: width 0.5s ease-in-out;
     position: relative;
-}
-/* Text displayed inside the progress bar */
-.progress-text {
+  }
+  
+  .progress-text {
     position: absolute;
     right: 10px;
     color: white;
     font-size: 0.8em;
     line-height: 20px;
-}
-/* Section for writing tools */
-.writing-tools {
+  }
+  
+  .writing-tools {
     margin-bottom: 15px;
-}
-/* Styling for the textarea where users write their notes */
-.clear-btn {
+  }
+  
+  .clear-btn {
     background: var(--accent-color);
     color: white;
     border: none;
@@ -124,18 +125,18 @@ h1 {
     margin-bottom: 15px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.clear-btn:hover {
+  }
+  
+  .clear-btn:hover {
     background: #c0392b;
     transform: scale(1.05);
-}
-
-.clear-btn:active {
+  }
+  
+  .clear-btn:active {
     transform: scale(0.95);
-}
-
-textarea {
+  }
+  
+  textarea {
     width: 100%;
     min-height: 200px;
     padding: 15px;
@@ -144,43 +145,138 @@ textarea {
     font-size: 1em;
     resize: vertical;
     transition: border-color 0.3s ease;
-}
-
-textarea:focus {
+  }
+  
+  textarea:focus {
     border-color: var(--primary-color);
     outline: none;
-}
-/* Section for the calendar component */
-.calendar-section {
+  }
+  
+  .calendar-section {
     margin-top: 30px;
-}
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .description-container {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .description-container::-webkit-scrollbar {
+      width: 8px;
+  }
+  
+  .description-container::-webkit-scrollbar-track {
+      background: #f1f1f1;
+  }
+  
+  .description-container::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+  }
+  
+  .description-container::-webkit-scrollbar-thumb:hover {
+      background: #555;
+  }
+  
+  #editEvent,
+  #deleteEvent {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #editEvent {
+    background-color: var(--primary-color);
+    color: white;
+    margin-right: 10px;
+  }
+  
+  #deleteEvent {
+    background-color: var(--accent-color);
+    color: white;
+  }
+  
+  #editEvent:hover,
+  #deleteEvent:hover {
+    opacity: 0.8;
+  }
+  
+  @media (max-width: 768px) {
     .container {
-        padding: 10px;
+      padding: 10px;
     }
-    
+  
     .dashboard-grid {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
     }
-    
+  
     h1 {
-        font-size: 2em;
+      font-size: 2em;
     }
-}
-
-.animate__animated {
+  }
+  
+  .animate__animated {
     animation-duration: 1s;
     animation-fill-mode: both;
-}
-
-@keyframes gradient {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-}
-
-.wave-container {
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+  
+  .wave-container {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -188,9 +284,9 @@ textarea:focus {
     overflow: hidden;
     line-height: 0;
     z-index: -1;
-}
-
-.wave {
+  }
+  
+  .wave {
     background: rgba(255, 255, 255, 0.25);
     border-radius: 1000% 1000% 0 0;
     position: fixed;
@@ -201,24 +297,36 @@ textarea:focus {
     opacity: 0.8;
     bottom: 0;
     left: 0;
-}
-
-.wave:nth-child(2) {
+  }
+  
+  .wave:nth-child(2) {
     bottom: -1.25em;
     animation: wave 18s linear reverse infinite;
     opacity: 0.6;
-}
-
-.wave:nth-child(3) {
+  }
+  
+  .wave:nth-child(3) {
     bottom: -2.5em;
     animation: wave 20s -1s reverse infinite;
     opacity: 0.4;
-}
-
-@keyframes wave {
-    2% { transform: translateX(1); }
-    25% { transform: translateX(-25%); }
-    50% { transform: translateX(-50%); }
-    75% { transform: translateX(-25%); }
-    100% { transform: translateX(1); }
-}
+  }
+  
+  @keyframes wave {
+    2% {
+      transform: translateX(1);
+    }
+    25% {
+      transform: translateX(-25%);
+    }
+    50% {
+      transform: translateX(-50%);
+    }
+    75% {
+      transform: translateX(-25%);
+    }
+    100% {
+      transform: translateX(1);
+    }
+  }
+  
+  
