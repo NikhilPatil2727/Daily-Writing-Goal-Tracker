@@ -114,20 +114,25 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* .tool-btn {
-    background: var(--primary-color);
+.clear-btn {
+    background: var(--accent-color);
     color: white;
     border: none;
     padding: 8px 15px;
     border-radius: 5px;
-    margin-right: 10px;
+    margin-bottom: 15px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.tool-btn:hover {
-    background: var(--secondary-color);
-} */
+.clear-btn:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+.clear-btn:active {
+    transform: scale(0.95);
+}
 
 textarea {
     width: 100%;
@@ -149,7 +154,6 @@ textarea:focus {
     margin-top: 30px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .container {
         padding: 10px;
@@ -164,7 +168,6 @@ textarea:focus {
     }
 }
 
-/* Animation Classes */
 .animate__animated {
     animation-duration: 1s;
     animation-fill-mode: both;
@@ -176,7 +179,6 @@ textarea:focus {
     100% { background-position: 0% 0%; }
 }
 
-/* Wave Animation */
 .wave-container {
     position: fixed;
     bottom: 0;
